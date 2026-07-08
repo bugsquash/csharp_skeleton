@@ -9,7 +9,7 @@ namespace WakingSkeleton.Library
 
         public decimal TotalExcludingShipping()
         {
-            return LineItems.Sum(x => x.Price * x.Quantity);
+            return LineItems.Sum(x => x.Product.Price * x.Quantity);
         }
 
         public Order()
@@ -20,8 +20,7 @@ namespace WakingSkeleton.Library
 
     public class LineItem
     {
-        public int ProductId { get; set; }
+        public Product? Product { get; set; }
         public int Quantity { get; set; }
-        public decimal Price { get; set; }
     }
 }
