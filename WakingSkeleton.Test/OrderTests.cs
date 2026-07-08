@@ -17,7 +17,8 @@ public class OrderTests
         LineItem lineItem = new()
         {
             ProductId = product.Id,
-            Quantity = 1
+            Quantity = 1,
+            Price = product.Price
         };
 
         Order order = new();

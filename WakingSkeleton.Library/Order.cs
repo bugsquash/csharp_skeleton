@@ -1,12 +1,15 @@
-﻿namespace WakingSkeleton.Library
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace WakingSkeleton.Library
 {
     public class Order
     {
-        public List<LineItem>? LineItems { get; set; }
+        [Required]
+        public List<LineItem> LineItems { get; set; }
 
         public decimal TotalExcludingShipping()
         {
-            return 159.95m;
+            return LineItems.Sum(x => x.Price * x.Quantity);
         }
 
         public Order()
@@ -19,5 +22,6 @@
     {
         public int ProductId { get; set; }
         public int Quantity { get; set; }
+        public decimal Price { get; set; }
     }
 }
